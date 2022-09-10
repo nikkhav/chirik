@@ -1,0 +1,39 @@
+
+.nav {
+  height: 5rem;
+  background-color: $second-color;
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+  align-items: center;
+  //align-items: flex-start;
+  padding: 0 2rem;
+  position: relative;
+  box-shadow: cornflowerblue 0 0 10px;
+
+  &__wrapper {
+    margin-left: 3rem;
+  }
+
+  &__item {
+    list-style: none;
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    padding-right: 2rem;
+
+    &__active {
+      color: #5084ec;
+      font-size: 1.7rem;
+    }
+
+    &:hover {
+      color: $skyblue-color;
+      font-size: 1.6rem;
+    }
+  }
+}

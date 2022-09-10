@@ -1,22 +1,36 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const classes = "nav__item flex__item";
   return (
-    <div className={"nav"}>
-      <nav className={"nav__inner"}>
-        <div className={"flex__wrapper"}>
-          <NavLink className={"nav__item flex__item"} to={"/"}>
-            Лента
-          </NavLink>
-          <NavLink className={"nav__item flex__item"} to={"/profile"}>
-            Профиль
-          </NavLink>
-          <NavLink to={"/create-post"} className={"nav__item flex__item"}>
-            Создать пост
-          </NavLink>
-        </div>
-      </nav>
-    </div>
+    <nav className={"nav"}>
+      <div className={"nav__wrapper"}>
+        <NavLink
+          className={(navData) =>
+            navData.isActive ? classes + " nav__item__active" : classes
+          }
+          to={"/"}
+        >
+          Лента
+        </NavLink>
+        <NavLink
+          className={(navData) =>
+            navData.isActive ? classes + " nav__item__active" : classes
+          }
+          to={"/profile"}
+        >
+          Профиль
+        </NavLink>
+        <NavLink
+          to={"/create-post"}
+          className={(navData) =>
+            navData.isActive ? classes + " nav__item__active" : classes
+          }
+        >
+          Создать пост
+        </NavLink>
+      </div>
+    </nav>
   );
 };
 

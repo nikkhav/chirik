@@ -1,0 +1,27 @@
+.button {
+  margin-top: 5rem;
+  width: 35rem;
+  height: 5rem;
+  border: none;
+  background-color: #ffffff;
+  color: #080710;
+  font-size: 1.9rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: $skyblue-color;
+  }
+
+  &__correct {
+    background-color: #90EE90;
+    color: #ffffff;
+  }
+
+  &__wrong {
+    background-color: #FF6347;
+    color: #ffffff;
+  }
+}
