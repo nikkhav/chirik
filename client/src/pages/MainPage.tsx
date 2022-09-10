@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 const MainPage = () => {
   const [posts, setPosts] = useState<[]>([]);
   useEffect(() => {
-    axios.get("http://localhost:4000/api/v1/posts").then((res) => {
-      setPosts(res.data.posts);
-    });
+    axios
+      .get(`http://${window.location.hostname}:4000/api/v1/posts`)
+      .then((res) => {
+        setPosts(res.data.posts);
+      });
   }, []);
   return (
     <div className={"feed page"}>
