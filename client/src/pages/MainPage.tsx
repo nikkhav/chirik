@@ -1,4 +1,4 @@
-import Post from "../components/Post";
+import Post, { PostProps } from "../components/Post";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -10,14 +10,20 @@ const MainPage = () => {
     });
   }, []);
   return (
-    <div className={"feed"}>
-      <h1>Main page</h1>
-      {posts.map((post) => (
+    <div className={"feed page"}>
+      <h1 className={"page__title"}>Welcome to feed</h1>
+      {posts.map((post: PostProps) => (
         <Post
           title={post["title"]}
           body={post["body"]}
           author={post["author"]}
-          createdAt={post["createdAt"]}
+          createdAt={
+            post["createdAt"].split("T")[0] +
+            " at " +
+            post["createdAt"].split("T")[1].split(".")[0].split(":")[0] +
+            ":" +
+            post["createdAt"].split("T")[1].split(".")[0].split(":")[1]
+          }
           key={post["_id"]}
         />
       ))}

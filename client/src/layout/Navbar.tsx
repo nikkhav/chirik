@@ -11,6 +11,9 @@ const Navbar = () => {
           <NavLink className={"nav__item flex__item"} to={"/profile"}>
             Профиль
           </NavLink>
+          <NavLink to={"/create-post"} className={"nav__item flex__item"}>
+            Создать пост
+          </NavLink>
         </div>
       </nav>
     </div>
