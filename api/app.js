@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
 const postRouter = require("./routes/postRoutes");
-const userRouter = require("./routes/userRoutes");
+const authRouter = require("./routes/authRoutes");
 
 // Middlewares
 app.use(morgan("dev"));
@@ -16,6 +16,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/posts", postRouter);
-app.use("/api/v1/users", userRouter);
+app.use("/api/v1/auth", authRouter);
 
 module.exports = app;
