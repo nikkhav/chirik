@@ -6,6 +6,7 @@
   background-color: $skyblue-color;
   border-radius: 1rem;
   box-shadow: rgb(37, 97, 243) 0 0.5rem 1.5rem;
+  //box-shadow: rgb(239, 11, 100) 0 0.5rem 6.5rem;
   animation: divOpacity 1s ease-in-out;
 
   &__title {
@@ -82,6 +83,16 @@
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: black;
+    color: $skyblue-color;
+    box-shadow: #2561f3 0 0.5rem 1.5rem;
   }
+}
+
+.background__login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#74ebd5, #ACB6E5);
 }

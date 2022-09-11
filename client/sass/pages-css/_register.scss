@@ -16,6 +16,17 @@
   }
 }
 
+.background__register {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  //background-image: linear-gradient(#06beb6, #48b1bf);
+  background-image: linear-gradient(#1c92d2, #f2fcfe);
+}
+
+
 .button__next {
   margin-top: 5rem;
   width: 35rem;
@@ -35,6 +46,10 @@
 
   &:hover {
     color: $skyblue-color;
+    box-shadow: #2561f3 0 0.5rem 1.5rem;
+    height: 5.3rem;
+    width: 37rem;
+    font-size: 2rem;
   }
 }
 
@@ -69,5 +84,6 @@
 
   &:hover {
     color: black;
+    box-shadow: #2561f3 0 0.5rem 1.5rem;
   }
 }

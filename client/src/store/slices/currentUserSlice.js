@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
+// TODO change isLogged to false
 const initialState = {
   username: null,
   isLoggedIn: false,

@@ -1,10 +1,18 @@
 import Post, { PostProps } from "../components/Post";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
+  // Check if user is logged in
+  const isLoggedIn = useSelector((state: any) => state.currentUser.isLoggedIn);
+  const navigate = useNavigate();
+  // Get posts from server
   const [posts, setPosts] = useState<[]>([]);
   useEffect(() => {
+    // If user is not logged in, redirect to login page
+    if (!isLoggedIn) navigate("/login");
     document.title = "Feed";
     axios
       .get(`http://${window.location.hostname}:4000/api/v1/posts`)

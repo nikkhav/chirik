@@ -1,7 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { setStatus } from "../store/slices/currentUserSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
-  const classes = "nav__item flex__item";
+  const dispatch = useDispatch();
+  const classes = "nav__item";
+  const currentUser = useSelector((state: any) => state.currentUser);
+
+  const logout = () => {
+    dispatch(setStatus());
+  };
   return (
     <nav className={"nav"}>
       <div className={"nav__wrapper"}>
@@ -29,6 +37,13 @@ const Navbar = () => {
         >
           Создать пост
         </NavLink>
+
+        <NavLink onClick={logout} to={"/login"} className={classes}>
+          Выйти
+        </NavLink>
+      </div>
+      <div className={"welcome__user"}>
+        <span>Привет, {currentUser.firstname}!</span>
       </div>
     </nav>
   );

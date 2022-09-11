@@ -11,7 +11,6 @@ import {useSelector} from "react-redux";
 
 // TODO: Отображать страницу с постами, если пользователь авторизован
 // TODO: Отображать страницу с логином, если пользователь не авторизован
-// TODO: Не отображать навигацию, если пользователь не авторизован
 
 function App() {
   const isLoggedIn = useSelector((state: any) => state.currentUser.isLoggedIn);

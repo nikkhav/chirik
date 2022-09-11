@@ -11,8 +11,22 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
+  &__login {
+    &:hover {
+      box-shadow: #2561f3 0 0.5rem 1.5rem;
+      height: 5.3rem;
+      width: 37rem;
+      font-size: 2rem;
+    }
+  }
+
+
   &:hover {
     color: $skyblue-color;
+    box-shadow: #2561f3 0 0.5rem 1.5rem;
+    height: 5.3rem;
+    width: 37rem;
+    font-size: 2rem;
   }
 
   &__correct {

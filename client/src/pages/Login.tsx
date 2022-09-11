@@ -63,47 +63,49 @@ const Login: React.FC = () => {
     });
   };
   return (
-    <form className={"form__login"}>
-      <h3 className={"form__login__title"}>Вход Chirik</h3>
-      <label className={"form__login__label"} htmlFor="username">
-        Имя пользователя
-      </label>
-      <input
-        className={"form__login__input"}
-        onChange={usernameHandler}
-        placeholder={"Enter a username"}
-      />
-      <label className={"form__login__label"} htmlFor="password">
-        Пароль
-      </label>
-      <input
-        type={"password"}
-        style={{ fontSize: 25 }}
-        className={"form__login__input"}
-        onChange={passwordHandler}
-        placeholder={"Enter a password"}
-      />
-      <div className={"wrapper-center"}>
-        <button
-          style={{ backgroundColor: "rgb(48,216,48)", color: "white" }}
-          onClick={handleLogin}
-          className={"button"}
-          type="submit"
-        >
-          Войти
-        </button>
-      </div>
-      <h5 className={"form__login__mini-title"}>Нет аккаунта?</h5>
-      <div className={"wrapper-center"}>
-        <NavLink
-          style={{ textDecoration: "none" }}
-          className={"link__button"}
-          to={"/register"}
-        >
-          Зарегистрироваться
-        </NavLink>
-      </div>
-    </form>
+    <div className={"background__login"}>
+      <form className={"form__login"}>
+        <h3 className={"form__login__title"}>Добро пожаловать в Chirik 🕊</h3>
+        <label className={"form__login__label"} htmlFor="username">
+          Имя пользователя
+        </label>
+        <input
+          className={"form__login__input"}
+          onChange={usernameHandler}
+          placeholder={"Enter a username"}
+        />
+        <label className={"form__login__label"} htmlFor="password">
+          Пароль
+        </label>
+        <input
+          type={"password"}
+          style={{ fontSize: 25 }}
+          className={"form__login__input"}
+          onChange={passwordHandler}
+          placeholder={"Enter a password"}
+        />
+        <div className={"wrapper-center"}>
+          <button
+            style={{ backgroundColor: "#34d534", color: "white" }}
+            onClick={handleLogin}
+            className={"button"}
+            type="submit"
+          >
+            Войти
+          </button>
+        </div>
+        <h5 className={"form__login__mini-title"}>Нет аккаунта?</h5>
+        <div className={"wrapper-center"}>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            className={"link__button"}
+            to={"/register"}
+          >
+            Зарегистрироваться
+          </NavLink>
+        </div>
+      </form>
+    </div>
   );
 };
 

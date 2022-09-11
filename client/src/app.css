@@ -75,9 +75,37 @@ body {
     .nav__item__active {
       color: #5084ec;
       font-size: 1.7rem; }
+    .nav__item__reverse {
+      justify-content: flex-end;
+      justify-items: flex-end;
+      list-style: none;
+      margin: 0 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: black;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      padding-right: 2rem; }
     .nav__item:hover {
       color: #6495EDFF;
       font-size: 1.6rem; }
+
+.welcome__user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  padding-right: 2rem; }
+  .welcome__user:hover {
+    color: #6495EDFF;
+    font-size: 1.7rem; }
 
 .page__title {
   font-size: 2rem;
@@ -199,7 +227,16 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out; }
   .link__button:hover {
-    color: black; }
+    color: #6495EDFF;
+    box-shadow: #2561f3 0 0.5rem 1.5rem; }
+
+.background__login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#74ebd5, #ACB6E5); }
 
 .form__register {
   margin: auto;
@@ -214,6 +251,14 @@ body {
   .form__register:focus {
     outline: none;
     background-color: #f4f4f4; }
+
+.background__register {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#1c92d2, #f2fcfe); }
 
 .button__next {
   margin-top: 5rem;
@@ -230,7 +275,11 @@ body {
   .button__next:focus {
     background-color: #90EE90; }
   .button__next:hover {
-    color: #6495EDFF; }
+    color: #6495EDFF;
+    box-shadow: #2561f3 0 0.5rem 1.5rem;
+    height: 5.3rem;
+    width: 37rem;
+    font-size: 2rem; }
 
 .input__animation__left {
   animation: moveInLeft 2s ease-out; }
@@ -258,7 +307,8 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out; }
   #login__button__register:hover {
-    color: black; }
+    color: black;
+    box-shadow: #2561f3 0 0.5rem 1.5rem; }
 
 .wrapper-center {
   display: flex;
@@ -277,8 +327,17 @@ body {
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out; }
+  .button__login:hover {
+    box-shadow: #2561f3 0 0.5rem 1.5rem;
+    height: 5.3rem;
+    width: 37rem;
+    font-size: 2rem; }
   .button:hover {
-    color: #6495EDFF; }
+    color: #6495EDFF;
+    box-shadow: #2561f3 0 0.5rem 1.5rem;
+    height: 5.3rem;
+    width: 37rem;
+    font-size: 2rem; }
   .button__correct {
     background-color: #90EE90;
     color: #ffffff; }
