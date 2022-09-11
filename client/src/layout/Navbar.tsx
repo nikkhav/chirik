@@ -9,7 +9,7 @@ const Navbar = () => {
           className={(navData) =>
             navData.isActive ? classes + " nav__item__active" : classes
           }
-          to={"/"}
+          to={"/feed"}
         >
           Лента
         </NavLink>

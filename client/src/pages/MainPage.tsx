@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const MainPage = () => {
   const [posts, setPosts] = useState<[]>([]);
   useEffect(() => {
+    document.title = "Feed";
     axios
       .get(`http://${window.location.hostname}:4000/api/v1/posts`)
       .then((res) => {

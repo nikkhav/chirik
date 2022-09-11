@@ -1,63 +1,56 @@
-.form {
+.form__register {
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 7rem;
   height: 50rem;
-  width: 45rem;
+  width: 65rem;
   background-color: $skyblue-color;
   border-radius: 1rem;
   box-shadow: rgb(37, 97, 243) 0 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+  animation: divOpacity 1s ease-in-out;
 
-  h3 {
-    padding-top: 4rem;
-    text-align: center;
-    margin-top: 5rem;
-    font-size: 2rem;
-    font-weight: 700;
-    color: $main-color;
-  }
 
-  h5 {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: $main-color;
-  }
-
-  label {
-    text-align: center;
-    display: block;
-    color: $main-color;
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-    margin: auto;
-    font-size: 1.7rem;
-    font-weight: 600;
-  }
-
-  input {
-    display: block;
-    height: 5rem;
-    width: 85%;
-    //background-color: rgb(222, 230, 253);
-    background-color: white;
-    border-radius: 2.2rem;
-    border: none;
-    box-shadow: #2561f3 0 0.5rem 1.5rem;
-    margin: auto;
-    font-size: 1.4rem;
-    font-weight: 500;
-    text-indent: 2rem;
-    transition: all 0.3s ease-in-out;
-
-    &:focus {
-      outline: none;
-      background-color: $main-color;
-    }
+  &:focus {
+    outline: none;
+    background-color: $main-color;
   }
 }
 
-.link__button {
+.button__next {
+  margin-top: 5rem;
+  width: 35rem;
+  height: 5rem;
+  border: none;
+  background-color: #ffffff;
+  color: #080710;
+  font-size: 1.9rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    background-color: #90EE90;
+  }
+
+  &:hover {
+    color: $skyblue-color;
+  }
+}
+
+.input__animation__left {
+  animation: moveInLeft 2s ease-out;
+}
+
+.input__animation__right {
+  animation: moveInRight 2s ease-out;
+}
+
+.text__animation__opacity {
+  animation: textOpacity 2s ease-out;
+}
+
+#login__button__register {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +58,7 @@
   width: 20rem;
   height: 4rem;
   border: none;
-  background-color: rgb(51, 222, 51);
+  background-color: white;
   color: white;
   font-size: 1.4rem;
   text-align: center;

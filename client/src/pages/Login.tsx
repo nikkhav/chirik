@@ -1,6 +1,11 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import axios from "axios";
+import {
+  setCurrentUserData,
+  setStatus,
+} from "../store/slices/currentUserSlice";
 
 interface LoginData {
   username: string;
@@ -13,6 +18,13 @@ const Login: React.FC = () => {
     password: "",
   });
 
+  useEffect(() => {
+    document.title = "Sign In";
+  }, []);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleLogin = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     axios
@@ -21,6 +33,18 @@ const Login: React.FC = () => {
         loginData
       )
       .then((res) => {
+        if (res.status === 200) {
+          dispatch(
+            setCurrentUserData({
+              username: res.data.username,
+              firstname: res.data.firstname,
+              lastname: res.data.lastname,
+              token: res.data.token,
+            })
+          );
+          dispatch(setStatus());
+          navigate("/feed");
+        }
         console.log(res);
       });
   };
@@ -39,18 +63,37 @@ const Login: React.FC = () => {
     });
   };
   return (
-    <form className={"form"}>
-      <h3>Вход Chirik</h3>
-      <label htmlFor="username">Имя пользователя</label>
-      <input onChange={usernameHandler} placeholder={"Enter a username"} />
-      <label htmlFor="password">Пароль</label>
-      <input onChange={passwordHandler} placeholder={"Enter a password"} />
+    <form className={"form__login"}>
+      <h3 className={"form__login__title"}>Вход Chirik</h3>
+      <label className={"form__login__label"} htmlFor="username">
+        Имя пользователя
+      </label>
+      <input
+        className={"form__login__input"}
+        onChange={usernameHandler}
+        placeholder={"Enter a username"}
+      />
+      <label className={"form__login__label"} htmlFor="password">
+        Пароль
+      </label>
+      <input
+        type={"password"}
+        style={{ fontSize: 25 }}
+        className={"form__login__input"}
+        onChange={passwordHandler}
+        placeholder={"Enter a password"}
+      />
       <div className={"wrapper-center"}>
-        <button onClick={handleLogin} className={"button"} type="submit">
+        <button
+          style={{ backgroundColor: "rgb(48,216,48)", color: "white" }}
+          onClick={handleLogin}
+          className={"button"}
+          type="submit"
+        >
           Войти
         </button>
       </div>
-      <h5>Нет аккаунта?</h5>
+      <h5 className={"form__login__mini-title"}>Нет аккаунта?</h5>
       <div className={"wrapper-center"}>
         <NavLink
           style={{ textDecoration: "none" }}

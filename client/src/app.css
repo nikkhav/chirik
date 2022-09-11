@@ -1,3 +1,43 @@
+@keyframes buttonSpin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes textOpacity {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1; } }
+
+@keyframes divOpacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -51,7 +91,8 @@ body {
   justify-content: center;
   width: 90%;
   padding: 2rem;
-  margin: 2rem auto 0; }
+  margin: 2rem auto 0;
+  animation: divOpacity 0.5s ease-in-out; }
 
 .post {
   display: flex;
@@ -91,28 +132,29 @@ body {
       font-size: 1.2rem;
       font-weight: 500; }
 
-.form {
+.form__login {
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 7rem;
   height: 50rem;
-  width: 45rem;
+  width: 65rem;
   background-color: #6495EDFF;
   border-radius: 1rem;
-  box-shadow: #2561f3 0 0.5rem 1.5rem; }
-  .form h3 {
+  box-shadow: #2561f3 0 0.5rem 1.5rem;
+  animation: divOpacity 1s ease-in-out; }
+  .form__login__title {
     padding-top: 4rem;
     text-align: center;
     margin-top: 5rem;
-    font-size: 2rem;
+    font-size: 2.3rem;
     font-weight: 700;
     color: #f4f4f4; }
-  .form h5 {
+  .form__login__mini-title {
     text-align: center;
     margin-top: 2rem;
     font-size: 1.5rem;
     font-weight: 600;
     color: #f4f4f4; }
-  .form label {
+  .form__login__label {
     text-align: center;
     display: block;
     color: #f4f4f4;
@@ -121,7 +163,7 @@ body {
     margin: auto;
     font-size: 1.7rem;
     font-weight: 600; }
-  .form input {
+  .form__login__input {
     display: block;
     height: 5rem;
     width: 85%;
@@ -134,9 +176,11 @@ body {
     font-weight: 500;
     text-indent: 2rem;
     transition: all 0.3s ease-in-out; }
-    .form input:focus {
+    .form__login__input:focus {
       outline: none;
       background-color: #f4f4f4; }
+    .form__login__input::placeholder {
+      font-size: 1.7rem; }
 
 .link__button {
   display: inline-flex;
@@ -146,8 +190,8 @@ body {
   width: 20rem;
   height: 4rem;
   border: none;
-  background-color: #33de33;
-  color: white;
+  background-color: white;
+  color: black;
   font-size: 1.4rem;
   text-align: center;
   font-weight: 600;
@@ -155,6 +199,65 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out; }
   .link__button:hover {
+    color: black; }
+
+.form__register {
+  margin: auto;
+  margin-top: 7rem;
+  height: 50rem;
+  width: 65rem;
+  background-color: #6495EDFF;
+  border-radius: 1rem;
+  box-shadow: #2561f3 0 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+  animation: divOpacity 1s ease-in-out; }
+  .form__register:focus {
+    outline: none;
+    background-color: #f4f4f4; }
+
+.button__next {
+  margin-top: 5rem;
+  width: 35rem;
+  height: 5rem;
+  border: none;
+  background-color: #ffffff;
+  color: #080710;
+  font-size: 1.9rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; }
+  .button__next:focus {
+    background-color: #90EE90; }
+  .button__next:hover {
+    color: #6495EDFF; }
+
+.input__animation__left {
+  animation: moveInLeft 2s ease-out; }
+
+.input__animation__right {
+  animation: moveInRight 2s ease-out; }
+
+.text__animation__opacity {
+  animation: textOpacity 2s ease-out; }
+
+#login__button__register {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  width: 20rem;
+  height: 4rem;
+  border: none;
+  background-color: white;
+  color: white;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; }
+  #login__button__register:hover {
     color: black; }
 
 .wrapper-center {
@@ -176,3 +279,9 @@ body {
   transition: all 0.3s ease-in-out; }
   .button:hover {
     color: #6495EDFF; }
+  .button__correct {
+    background-color: #90EE90;
+    color: #ffffff; }
+  .button__wrong {
+    background-color: #FF6347;
+    color: #ffffff; }
