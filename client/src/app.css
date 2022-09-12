@@ -52,7 +52,7 @@ body {
 
 .nav {
   height: 5rem;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.39);
   display: flex;
   margin: 0;
   justify-content: space-between;
@@ -127,20 +127,20 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
-  padding: 2rem;
+  width: 65%;
+  padding: 4rem;
   border-left: #6495EDFF 0.5rem solid;
   border-right: #6495EDFF 0.5rem solid;
   border-bottom: #bebbbb 0.2rem solid;
   border-top: #bebbbb 0.2rem solid;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   margin-bottom: 2rem; }
   .post__title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
-    margin-bottom: 1rem; }
+    margin-bottom: 2rem; }
   .post__content {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 400;
     margin-bottom: 1rem; }
   .post__author {
@@ -309,6 +309,131 @@ body {
   #login__button__register:hover {
     color: black;
     box-shadow: #2561f3 0 0.5rem 1.5rem; }
+
+.profile-page {
+  position: absolute;
+  margin-top: 5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(#7F7FD5, #86A8E7, #91EAE4); }
+  .profile-page__posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 2rem;
+    margin: 2rem auto 0;
+    animation: divOpacity 0.5s ease-in-out; }
+  .profile-page__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 70%;
+    background-color: #f4f4f4;
+    border-radius: 1rem;
+    box-shadow: #2561f3 1rem 3rem 3rem;
+    margin: auto; }
+    .profile-page__container__username {
+      text-align: start;
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: black;
+      margin-bottom: 5rem;
+      padding: 4rem;
+      height: 20rem;
+      background-image: linear-gradient(#D3CCE3, #E9E4F0); }
+    .profile-page__container__functions {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: black;
+      margin-bottom: 2rem; }
+  .profile-page__post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem;
+    border-left: #6495EDFF 0.5rem solid;
+    border-right: #6495EDFF 0.5rem solid;
+    border-bottom: #bebbbb 0.2rem solid;
+    border-top: #bebbbb 0.2rem solid;
+    border-radius: 2rem;
+    margin-bottom: 4rem; }
+    .profile-page__post__title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 2rem; }
+    .profile-page__post__content {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1rem; }
+    .profile-page__post__author {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      margin-top: 2rem; }
+      .profile-page__post__author__name {
+        font-size: 1.6rem;
+        font-weight: 600; }
+    .profile-page__post__date {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-top: 1rem; }
+      .profile-page__post__date__name {
+        font-size: 1.4rem;
+        font-weight: 500; }
+    .profile-page__post__button-delete {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 30%;
+      background-color: rgba(255, 13, 13, 0.8);
+      border-radius: 1rem;
+      border-color: rgba(255, 13, 13, 0.8);
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out; }
+      .profile-page__post__button-delete:hover {
+        background-color: #ff0d0d;
+        border-color: #ff0d0d; }
+    .profile-page__post__button-edit {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 30%;
+      background-color: #6495EDFF;
+      border-radius: 1rem;
+      border-color: #6495EDFF;
+      padding: 1rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out; }
+      .profile-page__post__button-edit:hover {
+        background-color: #3f80ed;
+        border-color: #3f80ed; }
+  .profile-page__button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 2rem;
+    background-color: #f4f4f4;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: black;
+    cursor: pointer; }
 
 .wrapper-center {
   display: flex;

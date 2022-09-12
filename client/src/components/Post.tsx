@@ -15,7 +15,7 @@ const Post: React.FC<PostProps> = ({ title, body, author, createdAt }) => {
       <h2 className={"post__title"}>{title}</h2>
       <h3 className={"post__content"}>{body}</h3>
       <div className={"post__author"}>
-        <h5 className={"post__author__name"}>Author: {author}</h5>
+        <h5 className={"post__author__name"}>@{author}</h5>
       </div>
       <div className={"post__date"}>
         <h5 className={"post__date__name"}>Date: {createdAt}</h5>

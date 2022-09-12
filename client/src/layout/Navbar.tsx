@@ -8,6 +8,7 @@ const Navbar = () => {
   const currentUser = useSelector((state: any) => state.currentUser);
 
   const logout = () => {
+    localStorage.removeItem("token");
     dispatch(setStatus());
   };
   return (

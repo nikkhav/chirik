@@ -15,6 +15,8 @@ router.use("/users", authMiddleware, roleMiddleware(["ADMIN"]));
 
 router.route("/registration").post(authController.registration);
 router.route("/login").post(authController.login);
+
+router.route("/login/token").get(authController.checkToken);
 router.route("/users").get(authController.getUsers);
 router.route("/make-admin").patch(authController.makeAdmin);
 

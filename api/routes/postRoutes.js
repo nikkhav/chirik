@@ -7,6 +7,9 @@ router
   .get(postController.getAllPosts)
   .post(postController.createPost);
 
-router.route("/:id").delete(postController.deletePost);
+router
+  .route("/:id")
+  .delete(postController.deletePost)
+  .get(postController.getUserPosts);
 
 module.exports = router;

@@ -1,0 +1,162 @@
+.profile-page {
+  position: absolute;
+  margin-top: 5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(#7F7FD5, #86A8E7, #91EAE4);
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 2rem;
+    margin: 2rem auto 0;
+    animation: divOpacity 0.5s ease-in-out;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    //align-items: center;
+    width: 70%;
+    background-color: $main-color;
+    border-radius: 1rem;
+    box-shadow: #2561f3 1rem 3rem 3rem;
+    margin: auto;
+
+
+    &__username {
+      text-align: start;
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: black;
+      margin-bottom: 5rem;
+      padding: 4rem;
+      height: 20rem;
+      background-image: linear-gradient(#D3CCE3, #E9E4F0);;
+    }
+
+    &__functions {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: black;
+      margin-bottom: 2rem;
+    }
+
+
+  }
+
+  &__post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem;
+    border-left: $skyblue-color 0.5rem solid;
+    border-right: $skyblue-color 0.5rem solid;
+    border-bottom: $border-bottom-color 0.2rem solid;
+    border-top: $border-bottom-color 0.2rem solid;
+    border-radius: 2rem;
+    margin-bottom: 4rem;
+
+    &__title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    &__content {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    &__author {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      margin-top: 2rem;
+
+      &__name {
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+    }
+
+    &__date {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-top: 1rem;
+
+      &__name {
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+    }
+
+    &__button-delete {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 30%;
+      background-color: rgba(255, 13, 13, 0.8);
+      border-radius: 1rem;
+      border-color: rgba(255, 13, 13, 0.8);
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: rgba(255, 13, 13, 1);
+        border-color: rgba(255, 13, 13, 1);
+      }
+    }
+
+    &__button-edit {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 30%;
+      background-color: $skyblue-color;
+      border-radius: 1rem;
+      border-color: $skyblue-color;
+      padding: 1rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #3f80ed;
+        border-color: #3f80ed;
+      }
+    }
+
+  }
+
+  &__button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 2rem;
+    background-color: $main-color;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+  }
+}

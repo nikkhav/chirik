@@ -161,3 +161,36 @@ exports.makeAdmin = async (req, res) => {
     });
   }
 };
+
+exports.checkToken = async (req, res) => {
+  try {
+    // Validate the request
+    const token = req.headers["authorization"];
+    if (!token) {
+      return res.status(401).json({
+        status: "error",
+        message: "Access denied. No token provided",
+      });
+    }
+    try {
+      const decoded = jwt.verify(token, secret);
+      req.user = decoded;
+      return res.status(200).json({
+        status: "success",
+        message: "Token is valid",
+        userId: decoded.userId,
+      });
+    } catch (err) {
+      return res.status(400).json({
+        status: "error",
+        message: "Invalid token",
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      status: "error",
+      message: "Check token failed",
+      error: err.message,
+    });
+  }
+};

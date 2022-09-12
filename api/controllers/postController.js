@@ -36,10 +36,27 @@ exports.createPost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
   try {
-    await Post.findByIdAndDelete(req.params.id);
-    res.status(204).json({
+    const post = await Post.findByIdAndDelete(req.params.id);
+    res.status(200).json({
       status: "success",
       data: null,
+      deletedPost: post,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
+
+exports.getUserPosts = async (req, res) => {
+  try {
+    const posts = await Post.find({ author: req.params.id });
+    res.status(200).json({
+      status: "success",
+      results: posts.length,
+      posts,
     });
   } catch (err) {
     res.status(404).json({

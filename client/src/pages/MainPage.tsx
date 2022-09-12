@@ -19,9 +19,9 @@ const MainPage = () => {
       .then((res) => {
         setPosts(res.data.posts);
       });
-  }, []);
+  }, [isLoggedIn, navigate]);
   return (
-    <div className={"feed page"}>
+    <div className={"feed"}>
       <h1 className={"page__title"}>Welcome to feed</h1>
       {posts.map((post: PostProps) => (
         <Post
@@ -36,6 +36,7 @@ const MainPage = () => {
             post["createdAt"].split("T")[1].split(".")[0].split(":")[1]
           }
           key={post["_id"]}
+          _id={post["_id"]}
         />
       ))}
     </div>

@@ -17,7 +17,42 @@ const Login: React.FC = () => {
     username: "",
     password: "",
   });
-
+  // TODO use token to login
+  // const checkToken = async () => {
+  //   const res = await axios.get(
+  //     `http://${window.location.hostname}:4000/api/v1/auth/login/token`,
+  //     {
+  //       headers: {
+  //         Authorization: `${localStorage.getItem("token")}`,
+  //       },
+  //     }
+  //   );
+  //   const status = await res.data.status;
+  //   if (status === "success") {
+  //     dispatch(setStatus());
+  //     setLoginData({
+  //       username: `${localStorage.getItem("username")}`,
+  //       password: `${localStorage.getItem("password")}`,
+  //     });
+  //     axios
+  //       .post(
+  //         `http://${window.location.hostname}:4000/api/v1/auth/login`,
+  //         loginData
+  //       )
+  //       .then((res) => {
+  //         if (res.status === 200) {
+  //           dispatch(
+  //             setCurrentUserData({
+  //               username: res.data.username,
+  //               firstname: res.data.firstname,
+  //               lastname: res.data.lastname,
+  //               token: res.data.token,
+  //             })
+  //           );
+  //         }
+  //       });
+  //   }
+  // };
   useEffect(() => {
     document.title = "Sign In";
   }, []);
@@ -43,6 +78,7 @@ const Login: React.FC = () => {
             })
           );
           dispatch(setStatus());
+          localStorage.setItem("token", res.data.token);
           navigate("/feed");
         }
         console.log(res);
