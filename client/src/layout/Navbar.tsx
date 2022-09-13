@@ -30,14 +30,6 @@ const Navbar = () => {
         >
           Профиль
         </NavLink>
-        <NavLink
-          to={"/create-post"}
-          className={(navData) =>
-            navData.isActive ? classes + " nav__item__active" : classes
-          }
-        >
-          Создать пост
-        </NavLink>
 
         <NavLink onClick={logout} to={"/login"} className={classes}>
           Выйти

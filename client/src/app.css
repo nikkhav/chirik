@@ -38,6 +38,12 @@
   100% {
     opacity: 1; } }
 
+@keyframes borderGreen {
+  0% {
+    border: #34d534 0.3rem solid; }
+  100% {
+    border: #34d534 0.3rem solid; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -134,14 +140,13 @@ body {
   border-bottom: #bebbbb 0.2rem solid;
   border-top: #bebbbb 0.2rem solid;
   border-radius: 2rem;
-  margin-bottom: 2rem; }
-  .post__title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  animation: divOpacity 1s ease-in-out;
+  transition: all 0.3s ease-in-out; }
   .post__content {
-    font-size: 2rem;
-    font-weight: 400;
+    padding: 1rem;
+    font-size: 2.2rem;
+    font-weight: 450;
     margin-bottom: 1rem; }
   .post__author {
     display: flex;
@@ -152,6 +157,11 @@ body {
     .post__author__name {
       font-size: 1.4rem;
       font-weight: 600; }
+    .post__author__username {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+      color: #6f6e6e; }
   .post__date {
     font-size: 1.3rem;
     font-weight: 400;
@@ -315,8 +325,7 @@ body {
   margin-top: 5rem;
   top: 0;
   left: 0;
-  width: 100%;
-  background-image: linear-gradient(#7F7FD5, #86A8E7, #91EAE4); }
+  width: 100%; }
   .profile-page__posts {
     display: flex;
     flex-direction: column;
@@ -331,19 +340,18 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     width: 70%;
-    background-color: #f4f4f4;
     border-radius: 1rem;
-    box-shadow: #2561f3 1rem 3rem 3rem;
     margin: auto; }
-    .profile-page__container__username {
+    .profile-page__container__name {
       text-align: start;
       font-size: 2.5rem;
       font-weight: 500;
-      color: black;
-      margin-bottom: 5rem;
+      color: white;
+      margin-bottom: 3rem;
       padding: 4rem;
-      height: 20rem;
-      background-image: linear-gradient(#D3CCE3, #E9E4F0); }
+      height: 2.5rem;
+      background-color: #77a1ed;
+      border-radius: 0 0 2.5rem 2.5rem; }
     .profile-page__container__functions {
       text-align: center;
       font-size: 2rem;
@@ -362,14 +370,12 @@ body {
     border-bottom: #bebbbb 0.2rem solid;
     border-top: #bebbbb 0.2rem solid;
     border-radius: 2rem;
-    margin-bottom: 4rem; }
-    .profile-page__post__title {
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 2rem; }
+    margin-bottom: 4rem;
+    animation: divOpacity 1s ease-in-out;
+    transition: all 0.3s ease-in-out; }
     .profile-page__post__content {
-      font-size: 2rem;
-      font-weight: 400;
+      font-size: 2.2rem;
+      font-weight: 450;
       margin-bottom: 1rem; }
     .profile-page__post__author {
       display: flex;
@@ -427,13 +433,61 @@ body {
     justify-content: space-evenly;
     width: 100%;
     margin-top: 2rem;
-    background-color: #f4f4f4;
     border-radius: 1rem;
     padding: 1rem;
     font-size: 1.8rem;
     font-weight: 500;
     color: black;
     cursor: pointer; }
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 55%;
+  padding: 2rem;
+  border: #6495EDFF 0.3rem solid;
+  border-radius: 2rem;
+  margin-bottom: 5rem;
+  animation: divOpacity 1s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  .post-form__animate-green {
+    animation: borderGreen 1s ease-in-out; }
+  .post-form__body-input {
+    width: 60%;
+    height: 6rem;
+    padding: 1rem;
+    border: none;
+    border-bottom: rgba(128, 128, 128, 0.34) 0.1rem solid;
+    background-color: #f4f4f4;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    resize: none;
+    transition: all 0.3s ease-in-out; }
+    .post-form__body-input:focus {
+      outline: none;
+      border-bottom: #6495EDFF 0.1rem solid; }
+  .post-form__button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 60%; }
+  .post-form__button {
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: #6495EDFF;
+    color: #f4f4f4;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; }
+    .post-form__button:hover {
+      background-color: #5184ec;
+      color: white;
+      box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2); }
 
 .wrapper-center {
   display: flex;

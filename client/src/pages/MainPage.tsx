@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import CreatePost from "../components/CreatePost";
 
 const MainPage = () => {
   // Check if user is logged in
@@ -14,20 +15,29 @@ const MainPage = () => {
     // If user is not logged in, redirect to login page
     if (!isLoggedIn) navigate("/login");
     document.title = "Feed";
-    axios
-      .get(`http://${window.location.hostname}:4000/api/v1/posts`)
-      .then((res) => {
-        setPosts(res.data.posts);
-      });
+
+    // Set up interval to get posts from server
+    const postsInterval = setInterval(() => {
+      axios
+        .get(`http://${window.location.hostname}:4000/api/v1/posts`)
+        .then((res) => {
+          setPosts(res.data.posts);
+        });
+    }, 1500);
+    return () => {
+      // Cleanup
+      clearInterval(postsInterval);
+    };
   }, [isLoggedIn, navigate]);
   return (
     <div className={"feed"}>
-      <h1 className={"page__title"}>Welcome to feed</h1>
+      <CreatePost />
       {posts.map((post: PostProps) => (
         <Post
-          title={post["title"]}
           body={post["body"]}
-          author={post["author"]}
+          username={post["username"]}
+          firstName={post["firstName"]}
+          lastName={post["lastName"]}
           createdAt={
             post["createdAt"].split("T")[0] +
             " at " +

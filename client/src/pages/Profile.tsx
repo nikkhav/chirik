@@ -15,6 +15,20 @@ const Profile: React.FC = () => {
   const isLoggedIn = useSelector((state: any) => state.currentUser.isLoggedIn);
   const navigate = useNavigate();
 
+  // Delete post from server
+  const deletePost = (id: string) => {
+    axios
+      .delete(`http://${window.location.hostname}:4000/api/v1/posts/${id}`)
+      .then((res) => {
+        console.log(res.data);
+      });
+    axios
+      .get(`http://${window.location.hostname}:4000/api/v1/posts/${username}`)
+      .then((res) => {
+        setPosts(res.data.posts);
+      });
+  };
+
   useEffect(() => {
     // If user is not logged in, redirect to login page
     if (!isLoggedIn) navigate("/login", { replace: true });
@@ -22,33 +36,33 @@ const Profile: React.FC = () => {
     document.title = "Profile";
 
     // Get posts from server
-    axios
-      .get(`http://${window.location.hostname}:4000/api/v1/posts/${username}`)
-      .then((res) => {
-        setPosts(res.data.posts);
-      });
+    const postsInterval = setInterval(() => {
+      axios
+        .get(`http://${window.location.hostname}:4000/api/v1/posts/${username}`)
+        .then((res) => {
+          setPosts(res.data.posts);
+        });
+    }, 2000);
+    return () => {
+      // Cleanup
+      clearInterval(postsInterval);
+    };
   }, [isLoggedIn, navigate, username]);
   return (
-    // TODO Finish profile page
+    // TODO Put username under name
     <div className={"profile-page"}>
       <div className={"profile-page__container"}>
-        <h1 className={"profile-page__container__username"}>
+        <h1 className={"profile-page__container__name"}>
           {firstname} {lastname} @{username}
         </h1>
-        <h2 className={"profile-page__container__functions"}>
-          ?Управление постами?
-        </h2>
-        <h2 className={"profile-page__container__functions"}>?Друзья?</h2>
-        <h2 className={"profile-page__container__functions"}>
-          ?Удалить аккаунт?
-        </h2>
 
         <div className={"profile-page__posts"}>
           {posts.map((post: PostProps) => (
             <ProfilePost
-              title={post["title"]}
               body={post["body"]}
-              author={post["author"]}
+              username={post["username"]}
+              firstName={post["firstName"]}
+              lastName={post["lastName"]}
               createdAt={
                 post["createdAt"].split("T")[0] +
                 " at " +
@@ -58,6 +72,7 @@ const Profile: React.FC = () => {
               }
               key={post["_id"]}
               _id={post["_id"]}
+              deletePost={deletePost}
             />
           ))}
         </div>

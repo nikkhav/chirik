@@ -52,7 +52,7 @@ exports.deletePost = async (req, res) => {
 
 exports.getUserPosts = async (req, res) => {
   try {
-    const posts = await Post.find({ author: req.params.id });
+    const posts = await Post.find({ username: req.params.id });
     res.status(200).json({
       status: "success",
       results: posts.length,

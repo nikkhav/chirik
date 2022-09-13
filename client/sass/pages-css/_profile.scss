@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-image: linear-gradient(#7F7FD5, #86A8E7, #91EAE4);
+  //background-image: linear-gradient(#6ec6e6, #ffffff);
 
   &__posts {
     display: flex;
@@ -23,21 +23,23 @@
     justify-content: flex-start;
     //align-items: center;
     width: 70%;
-    background-color: $main-color;
+    //background-color: $second-color;
     border-radius: 1rem;
-    box-shadow: #2561f3 1rem 3rem 3rem;
+    //box-shadow: #2561f3 1rem 3rem 3rem;
     margin: auto;
 
 
-    &__username {
+    &__name {
       text-align: start;
       font-size: 2.5rem;
       font-weight: 500;
-      color: black;
-      margin-bottom: 5rem;
+      color: white;
+      margin-bottom: 3rem;
       padding: 4rem;
-      height: 20rem;
-      background-image: linear-gradient(#D3CCE3, #E9E4F0);;
+      height: 2.5rem;
+      background-color: #77a1ed;
+      border-radius: 0 0 2.5rem 2.5rem;
+
     }
 
     &__functions {
@@ -64,16 +66,13 @@
     border-top: $border-bottom-color 0.2rem solid;
     border-radius: 2rem;
     margin-bottom: 4rem;
+    animation: divOpacity 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
-    &__title {
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
 
     &__content {
-      font-size: 2rem;
-      font-weight: 400;
+      font-size: 2.2rem;
+      font-weight: 450;
       margin-bottom: 1rem;
     }
 
@@ -151,7 +150,7 @@
     justify-content: space-evenly;
     width: 100%;
     margin-top: 2rem;
-    background-color: $main-color;
+    //background-color: white;
     border-radius: 1rem;
     padding: 1rem;
     font-size: 1.8rem;
