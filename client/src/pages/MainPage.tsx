@@ -1,6 +1,6 @@
 import Post, { PostProps } from "../components/Post";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CreatePost from "../components/CreatePost";
@@ -30,26 +30,32 @@ const MainPage = () => {
     };
   }, [isLoggedIn, navigate]);
   return (
-    <div className={"feed"}>
-      <CreatePost />
-      {posts.map((post: PostProps) => (
-        <Post
-          body={post["body"]}
-          username={post["username"]}
-          firstName={post["firstName"]}
-          lastName={post["lastName"]}
-          createdAt={
-            post["createdAt"].split("T")[0] +
-            " at " +
-            post["createdAt"].split("T")[1].split(".")[0].split(":")[0] +
-            ":" +
-            post["createdAt"].split("T")[1].split(".")[0].split(":")[1]
-          }
-          key={post["_id"]}
-          _id={post["_id"]}
-        />
-      ))}
-    </div>
+    <Fragment>
+      <div className={"wrapper-center"}>
+        <CreatePost />
+      </div>
+      <div className={"feed"}>
+        {posts.map((post: PostProps) => (
+          <Post
+            body={post["body"]}
+            username={post["username"]}
+            firstName={post["firstName"]}
+            lastName={post["lastName"]}
+            likes={post["likes"]}
+            dislikes={post["dislikes"]}
+            createdAt={
+              post["createdAt"].split("T")[0] +
+              " at " +
+              post["createdAt"].split("T")[1].split(".")[0].split(":")[0] +
+              ":" +
+              post["createdAt"].split("T")[1].split(".")[0].split(":")[1]
+            }
+            key={post["_id"]}
+            _id={post["_id"]}
+          />
+        ))}
+      </div>
+    </Fragment>
   );
 };
 

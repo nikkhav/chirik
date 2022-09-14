@@ -29,6 +29,22 @@ const Profile: React.FC = () => {
       });
   };
 
+  const editPost = (id: string, newBody: string) => {
+    axios
+      .patch(`http://${window.location.hostname}:4000/api/v1/posts/${id}`, {
+        body: newBody,
+        username: username,
+      })
+      .then((res) => {
+        console.log(res.data);
+      });
+    axios
+      .get(`http://${window.location.hostname}:4000/api/v1/posts/${username}`)
+      .then((res) => {
+        setPosts(res.data.posts);
+      });
+  };
+
   useEffect(() => {
     // If user is not logged in, redirect to login page
     if (!isLoggedIn) navigate("/login", { replace: true });
@@ -49,33 +65,47 @@ const Profile: React.FC = () => {
     };
   }, [isLoggedIn, navigate, username]);
   return (
-    // TODO Put username under name
     <div className={"profile-page"}>
       <div className={"profile-page__container"}>
-        <h1 className={"profile-page__container__name"}>
-          {firstname} {lastname} @{username}
-        </h1>
-
-        <div className={"profile-page__posts"}>
-          {posts.map((post: PostProps) => (
-            <ProfilePost
-              body={post["body"]}
-              username={post["username"]}
-              firstName={post["firstName"]}
-              lastName={post["lastName"]}
-              createdAt={
-                post["createdAt"].split("T")[0] +
-                " at " +
-                post["createdAt"].split("T")[1].split(".")[0].split(":")[0] +
-                ":" +
-                post["createdAt"].split("T")[1].split(".")[0].split(":")[1]
-              }
-              key={post["_id"]}
-              _id={post["_id"]}
-              deletePost={deletePost}
-            />
-          ))}
+        <div className={"profile-page__container__name"}>
+          <h2 style={{ paddingRight: "2rem" }}>@{username}</h2>
+          <h2 style={{ fontSize: "2rem", marginTop: "1rem" }}>
+            {firstname} {lastname}
+          </h2>
         </div>
+
+        {posts.length === 0 ? (
+          <div
+            className={"wrapper-center"}
+            style={{ marginTop: "5rem", fontSize: "3.5rem" }}
+          >
+            <h1>У вас пока нет постов!</h1>
+          </div>
+        ) : (
+          <div className={"profile-page__posts"}>
+            {posts.map((post: PostProps) => (
+              <ProfilePost
+                dislikes={post["dislikes"]}
+                body={post["body"]}
+                username={post["username"]}
+                firstName={post["firstName"]}
+                lastName={post["lastName"]}
+                likes={post["likes"]}
+                createdAt={
+                  post["createdAt"].split("T")[0] +
+                  " at " +
+                  post["createdAt"].split("T")[1].split(".")[0].split(":")[0] +
+                  ":" +
+                  post["createdAt"].split("T")[1].split(".")[0].split(":")[1]
+                }
+                key={post["_id"]}
+                _id={post["_id"]}
+                deletePost={deletePost}
+                editPost={editPost}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

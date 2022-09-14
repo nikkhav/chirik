@@ -23,6 +23,34 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  likes: [
+    {
+      username: String,
+      createdAt: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+  ],
+  comments: [
+    {
+      body: String,
+      username: String,
+      createdAt: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+  ],
+  dislikes: [
+    {
+      username: String,
+      createdAt: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+  ],
 });
 
 const Post = mongoose.model("Post", postSchema);

@@ -10,6 +10,10 @@ router
 router
   .route("/:id")
   .delete(postController.deletePost)
-  .get(postController.getUserPosts);
+  .get(postController.getUserPosts)
+  .patch(postController.editPost);
+
+router.route("/like/:id").put(postController.likePost);
+router.route("/dislike/:id").put(postController.dislikePost);
 
 module.exports = router;

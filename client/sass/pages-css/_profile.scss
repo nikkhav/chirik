@@ -8,7 +8,7 @@
 
   &__posts {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     width: 90%;
@@ -30,13 +30,18 @@
 
 
     &__name {
-      text-align: start;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
       font-size: 2.5rem;
       font-weight: 500;
       color: white;
       margin-bottom: 3rem;
+      margin: auto;
       padding: 4rem;
       height: 2.5rem;
+      width: 60%;
       background-color: #77a1ed;
       border-radius: 0 0 2.5rem 2.5rem;
 
@@ -74,6 +79,26 @@
       font-size: 2.2rem;
       font-weight: 450;
       margin-bottom: 1rem;
+    }
+
+    &__input {
+      width: 90%;
+      height: 8rem;
+      padding: 1rem;
+      border: none;
+      border-bottom: rgba(128, 128, 128, 0.34) 0.1rem solid;
+      background-color: $main-color;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      margin: auto;
+      resize: none;
+      transition: all 0.3s ease-in-out;
+
+      &:focus {
+        outline: none;
+        border-bottom: $skyblue-color 0.1rem solid;
+      }
     }
 
     &__author {
