@@ -7,6 +7,7 @@ const CreatePost: React.FC = () => {
   const username = useSelector((state: any) => state.currentUser.username);
   const firstName = useSelector((state: any) => state.currentUser.firstname);
   const lastName = useSelector((state: any) => state.currentUser.lastname);
+  const [image, setImage] = useState<any>([]);
 
   const sendPost = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ const CreatePost: React.FC = () => {
         username,
         firstName,
         lastName,
+        image,
       })
       .then((res) => {
         console.log(res);
@@ -27,6 +29,12 @@ const CreatePost: React.FC = () => {
 
     setPostBody("");
   };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files: any = e.target.files;
+    const file = URL.createObjectURL(files[0]);
+    setImage(file);
+  };
   return (
     <div className={"post-form"}>
       <input
@@ -35,6 +43,7 @@ const CreatePost: React.FC = () => {
         className={"post-form__body-input"}
         placeholder={"Что у вас нового?"}
       />
+      <input type={"file"} onChange={handleFileChange} accept={"image/*"} />
       <div className={"post-form__button-container"}>
         <button onClick={sendPost} className={"post-form__button"}>
           Отправить

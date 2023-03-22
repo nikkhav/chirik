@@ -26,6 +26,7 @@ const Post: React.FC<PostProps> = ({
   likes,
   dislikes,
   _id,
+  image,
 }) => {
   const [liked, setLiked] = useState<boolean>(false);
   const [disliked, setDisliked] = useState<boolean>(false);
@@ -65,9 +66,11 @@ const Post: React.FC<PostProps> = ({
         console.log(err);
       });
   };
+  //console.log(image);
   return (
     <div className={"post"}>
       <h3 className={"post__content"}>{body}</h3>
+      <img src={image} alt={"Image test"} />
       <div className={"post__info"}>
         <div className={"post__author"}>
           <h5 className={"post__author__name"}>
